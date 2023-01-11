@@ -86,8 +86,8 @@ body {
   width: 100%;
   height: 800px;
   position: absolute;
-  top: 96px;
+  top: 68px;
   left: 0;
   background: var(--sea);
-  transform: skewY(172deg);
+  transform: skewY(175deg);
 }

@@ -7,10 +7,10 @@
     <link href="/css/app.css" rel="stylesheet"> 
     <title>Web Portal</title>
 </head>
-<body class="min-h-screen">
+<body class="lg:max-h-screen lg:overflow-hidden">
     {{-- LOGO --}}
     <header class="bg-gradient-to-br from-sea to-aqua md:w-[640px] rounded-br-[100px] py-9 pl-20 pr-36 relative z-10">
-        <img src="{{ asset("images/PDAM surya sembada kota surabaya.png") }}" alt="logo pdam surabaya" class="w-full">
+        <img src="{{ asset("images/PDAM surya sembada kota surabaya.png") }}" alt="logo pdam surabaya" class="w-9/12">
     </header>
     <svg width="50" height="69" viewBox="0 0 50 69" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-10 md:top-20 right-52 lg:right-96">
         <circle cx="6" cy="6" r="6" fill="#2D499C"/>
@@ -38,7 +38,7 @@
     </svg>
 
     {{-- HERO --}}
-    <section class="hero flex flex-col justify-between lg:flex-row pt-4 p-4 sm:px-16 relative">
+    <section class="hero flex flex-col justify-between lg:flex-row p-4 sm:px-16 relative">
         <svg width="50" height="69" viewBox="0 0 50 69" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute top-28 -left-12 md:-left-6">
             <circle cx="6" cy="6" r="6" fill="#2D499C"/>
             <circle cx="6" cy="25" r="6" fill="#2D499C"/>
@@ -68,7 +68,7 @@
             <circle cx="6" cy="6" r="6" transform="rotate(-90 6 6)" fill="#2D499C"/>
         </svg>
         
-        <div class="left lg:pr-28">
+        <div class="left lg:pr-28 pt-8">
             <h1 class="text-4xl md:text-5xl text-sea font-bold mb-2">Selamat Datang</h1>
             <h2 class="text-3xl md:text-4xl text-matcha font-semibold mb-2">DI WEB PORTAL <br>PDAM SURYA SEMBADA SURABAYA</h2>
             <p class="text-lg md:text-xl text-sea font-medium">Portal untuk akses aplikasi internal PDAM Surya Sembada Surabaya</p>
@@ -77,16 +77,16 @@
                 <div class="liquid"></div>
             </a>
         </div>
-        <div class="relative text-center mt-8">
-            <img src="{{ asset("images/selamat tahun baru.png") }}" alt="selamat tahun baru" class="hero-image ">
+        <div class="relative mt-8">
+            <img src="{{ asset("images/Aero 3.png") }}" alt="Aero 3.png" class="hero-image m-auto max-w-sm md:w-2/3">
         </div>
     </section>
-    <img src="{{ asset("images/air.png") }}" alt="air" class="absolute">
 
     {{-- FOOTER --}}
-    <footer class="footer-home relative mt-16 overflow-hidden h-44 md:h-36">
-        <div class="copyright pt-8 pr-12">
-            <p class="font-medium text-white text-xs md:text-base text-right relative z-10 top-24 md:top-20">&copy; Copyright PDAM Surya Sembada Surabaya. All Rights Reserved</p>
+    <footer class="footer-home relative overflow-hidden h-44 md:h-36">
+        <img src="{{ asset("images/air.png") }}" alt="air" class="absolute w-1/3 max-w-xs">
+        <div class="copyright pr-8">
+            <p class="font-medium text-white text-xs md:text-base text-right relative z-10 top-28 md:top-20">&copy; Copyright PDAM Surya Sembada Surabaya. All Rights Reserved</p>
         </div>
     </footer>
 
