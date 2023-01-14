@@ -72,7 +72,7 @@
             <h1 class="text-4xl md:text-5xl text-sea font-bold mb-2">Selamat Datang</h1>
             <h2 class="text-3xl md:text-4xl text-matcha font-semibold mb-2">DI WEB PORTAL <br>PDAM SURYA SEMBADA SURABAYA</h2>
             <p class="text-lg md:text-xl text-sea font-medium">Portal untuk akses aplikasi internal PDAM Surya Sembada Surabaya</p>
-            <a href="#" class="btn-daftar-aplikasi mt-5 block">
+            <a href="{{ route("daftar-aplikasi") }}" class="btn-daftar-aplikasi mt-5 block">
                 <span class="font-semibold text-lg sm:text-xl">Lihat Daftar Aplikasi</span>
                 <div class="liquid"></div>
             </a>

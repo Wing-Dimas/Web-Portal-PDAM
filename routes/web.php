@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get("/daftar-aplikasi", function() {
+    return view("daftar-aplikasi");
+})->name("daftar-aplikasi");

@@ -91,3 +91,57 @@ body {
   background: var(--sea);
   transform: skewY(175deg);
 }
+
+/* BANNER */
+.banner {
+  background: url("/images/banner.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.banner::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--sea);
+  mix-blend-mode: multiply;
+}
+
+/* .menus .menu:hover{
+  background-color:;
+} */
+
+/* CARDS */
+.cards .card {
+  background: #f4f4f4;
+  box-shadow: 30px 40px 40px rgba(0, 0, 0, 0.2);
+  perspective: 100em;
+}
+
+.cards .card .cover {
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: transform 1s;
+}
+
+.cards .card:hover .cover {
+  transform: rotateY(-120deg);
+}
+
+.coverFront {
+  background: #f4f4f4;
+  color: #333;
+  transform: translateZ(1px);
+  z-index: 1;
+}
+
+.coverBack {
+  background: #ddd;
+  transform: rotateY(180deg);
+  z-index: 0;
+}
