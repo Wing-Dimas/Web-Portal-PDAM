@@ -8,6 +8,16 @@
   --sea: #2d499c;
   --aqua: #59c9ef;
   --matcha: #bdd855;
+
+  --body-color: #eae9f7;
+  --sidebar-color: #fff;
+  --toggle-color: #ddd;
+  --text-color: #707070;
+
+  --tran-02: all 0.2s ease;
+  --tran-03: all 0.3s ease;
+  --tran-04: all 0.4s ease;
+  --tran-05: all 0.5s ease;
 }
 
 * {
@@ -144,4 +154,37 @@ body {
   background: #ddd;
   transform: rotateY(180deg);
   z-index: 0;
+}
+
+/* SIDEBAR */
+.menubar {
+  min-height: calc(100vh - 80px);
+}
+i.toggle,
+i.icon {
+  display: flex;
+}
+.sidebar li a.active {
+  background-color: var(--sea);
+}
+.sidebar li a.active span,
+.sidebar li a.active .icon {
+  color: var(--sidebar-color);
+}
+
+.sidebar li a:hover .icon,
+.sidebar li a:hover span {
+  color: var(--sidebar-color);
+}
+
+.sidebar.close {
+  width: 88px;
+}
+
+.sidebar.close .text {
+  opacity: 0;
+}
+
+.main.close {
+  left: 88px;
 }

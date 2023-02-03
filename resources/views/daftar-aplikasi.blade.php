@@ -13,20 +13,21 @@
         <div class="flex relative z-20 justify-center top-16 px-2 sm:px-16 md:px-32">
             <div class="relative w-full max-w-xl">
                 <ion-icon name="search" class="absolute left-2 top-1 text-2xl text-sea"></ion-icon>
-                <input type="text" name="search-aplikasi" class="search-aplikasi rounded-full outline-none py-1 pl-10 pr-28 w-full placeholder:text-sea placeholder:font-medium" placeholder="Telusuri Aplikasi">
+                <input type="text" name="search-application" class="search-application rounded-full outline-none py-1 pl-10 pr-28 w-full placeholder:text-sea placeholder:font-medium" placeholder="Telusuri Aplikasi">
                 <div class="flex items-center gap-3 absolute top-0.5 right-0.5">
                     <div class="dropdown relative">
-                        <input type="hidden" name="kategori" id="kategori" value="semua">
+                        <input type="hidden" name="kategori" id="kategori">
                         <button class="btn-filter bg-slate-300 p-1 flex items-center justify-center rounded-lg">
                             <ion-icon name="funnel" class="text-lg text-white"></ion-icon>
                         </button>
                         <ul class="menus hidden flex flex-col gap-3 absolute top-10 right-0 bg-white p-2 rounded-2xl w-64 font-medium text-sm transition-all duration-500">
-                            <li onclick="show('semua')" class="menu hover:bg-slate-200 hover:rounded-xl hover:cursor-pointer p-2 bg-slate-200 rounded-xl">Semua</li>
-                            <li onclick="show('direktorat keamanan')" class="menu hover:bg-slate-200 hover:rounded-xl hover:cursor-pointer p-2">Direktorat Keamanan</li>
-                            <li onclick="show('direktorat administrasi')" class="menu hover:bg-slate-200 hover:rounded-xl hover:cursor-pointer p-2">Direktorat Administrasi</li>
+                            <li onclick="prosesChangeGroup('')" class="menu hover:bg-slate-200 hover:rounded-xl hover:cursor-pointer p-2 bg-slate-200 rounded-xl">Semua</li>
+                            @foreach ($groups as $group)
+                                <li onclick="prosesChangeGroup('{{ $group->name }}')" class="menu hover:bg-slate-200 hover:rounded-xl hover:cursor-pointer p-2">{{ $group->name }}</li>
+                            @endforeach
                         </ul>
                     </div>
-                    <button class=" bg-sea rounded-full text-sm text-white font-medium py-1 px-2">Search</button>
+                    <button class="btn-search bg-sea rounded-full text-sm text-white font-medium py-1 px-2">Search</button>
                 </div>
             </div>
         </div>
@@ -35,27 +36,16 @@
 
     {{-- CARDS --}}
     <section class="cards flex flex-wrap items-center justify-center mt-5 gap-3">
-        {{-- <div class="card relative w-64 h-64 rounded-r-2xl bg-sea">
-            <div class="p-2 flex flex-col justify-between items-center h-full">
-                <h1 class="font-bold text-xl text-center my-2">Security</h1>
-                <p class="text-sm text-center"> dignissimos voluptatum recusandae!</p>
-                <a href="http://" class="flex justify-between items-center bg-sea text-white rounded-full w-20 px-2 ">
-                    Visit
-                    <ion-icon name="arrow-dropright-circle"></ion-icon>
-                </a>
-            </div>
-            <div class="cover absolute top-0 left-0 w-full h-full rounded-r-2xl">
-                <div class="coverFront flex justify-center items-center absolute w-full h-full rounded-r-2xl">
-                    <div class="flex flex-col items-center">
-                        <h4>Direktorat Keamanan</h4>
-                        <img src="images/Aero.png" alt="" class="w-16">
-                        <h5 class="font-medium text-2xl text-sea">Security</h5>
-                    </div>
-                </div>
-                <div class="coverBack flex justify-center items-center absolute w-full h-full rounded-l-2xl"></div>
-            </div>
-        </div> --}}
+        {{-- Content created by JS --}}
     </section>
+
+    {{-- FOOTER --}}
+    <footer class="relative mt-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#2d499c" fill-opacity="1" d="M0,160L30,176C60,192,120,224,180,245.3C240,267,300,277,360,250.7C420,224,480,160,540,128C600,96,660,96,720,133.3C780,171,840,245,900,250.7C960,256,1020,192,1080,149.3C1140,107,1200,85,1260,106.7C1320,128,1380,192,1410,224L1440,256L1440,320L1410,320C1380,320,1320,320,1260,320C1200,320,1140,320,1080,320C1020,320,960,320,900,320C840,320,780,320,720,320C660,320,600,320,540,320C480,320,420,320,360,320C300,320,240,320,180,320C120,320,60,320,30,320L0,320Z"></path></svg>
+        <div class="bg-sea pb-8">
+            <p class="font-medium text-white text-xs md:text-base text-center">&copy; Copyright PDAM Surya Sembada Surabaya. All Rights Reserved</p>
+        </div>
+    </footer>
 
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>

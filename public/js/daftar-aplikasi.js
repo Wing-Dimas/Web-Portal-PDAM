@@ -1,29 +1,12 @@
-const listAplikasi = [
-  {
-    name: "Security",
-    group: "Direktorat Keamanan",
-    description: "Aplikasi Untuk Keamanan",
-    link: "https://www.google.com",
-    icon: "Aero.png",
-  },
-  {
-    name: "Dashboard",
-    group: "Direktorat Administrasi",
-    description: "Aplikasi Untuk Dashboard",
-    link: "www.google.com",
-    icon: "Aero 2.png",
-  },
-  {
-    name: "Bank",
-    group: "Direktorat Keuangan",
-    description: "Aplikasi Untuk Mengeloal uang",
-    link: "www.google.com",
-    icon: "Aero 3.png",
-  },
-];
+const BASE_URL = $(location).attr("origin");
+
+const dataSearch = {
+  search: "",
+  group: "",
+};
 
 // generate card
-function createCard(lists = listAplikasi) {
+function createCard(lists = []) {
   let el = "";
   lists.forEach((list) => {
     el += `
@@ -39,8 +22,8 @@ function createCard(lists = listAplikasi) {
             <div class="cover absolute top-0 left-0 w-full h-full rounded-r-2xl">
                 <div class="coverFront flex justify-center items-center absolute w-full h-full rounded-r-2xl">
                     <div class="flex flex-col items-center gap-3">
-                        <h4>${list.group}</h4>
-                        <img src="images/${list.icon}" alt="${list.name}" class="w-16">
+                        <h4>${list.group_name}</h4>
+                        <img src="storage/${list.icon}" alt="${list.name}" class="w-16">
                         <h5 class="font-medium text-xl text-sea">${list.name}</h5>
                     </div>
                 </div>
@@ -52,11 +35,64 @@ function createCard(lists = listAplikasi) {
   return el;
 }
 
-$(document).ready(function () {
-  // show items into page
-  $(".cards").html(createCard());
+// get data from api
+async function fetchData(data = {}) {
+  const response = await fetch(`${BASE_URL}/api/get-application`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
 
-  //   Handle button filter
+  return response.json();
+}
+
+// get data
+function getData() {
+  fetchData(dataSearch).then((res) => {
+    const data = res.data;
+    $(".cards").html(createCard(data));
+  });
+}
+
+// debounce
+function debounce(func, timeout = 500) {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      func.apply(this, args);
+    }, timeout);
+  };
+}
+
+// handle filter group
+const prosesChangeGroup = debounce((val) => {
+  dataSearch.group = val;
+  getData();
+});
+
+$(document).ready(function () {
+  // call first
+  getData();
+
+  // handle input search
+  const prosesChangeSearch = debounce((val) => {
+    dataSearch.search = val;
+    getData();
+  });
+
+  $(".search-application").keyup(function () {
+    prosesChangeSearch($(this).val());
+  });
+
+  // handel button
+  $(".btn-search").click(function () {
+    prosesChangeSearch($(".search-application").val());
+  });
+
+  // Handle button filter
   $(".btn-filter").click(function () {
     if (!$(".btn-filter").hasClass("active")) {
       setTimeout(() => {
@@ -82,19 +118,3 @@ $(document).ready(function () {
     $(this).addClass("bg-slate-200 rounded-xl");
   });
 });
-
-// handle value when menu on click
-function show(anything) {
-  // change input value
-  $("#kategori").val(anything);
-}
-
-function debounce(func, timeout = 500) {
-  let timer;
-  return (...args) => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      func.apply(this, args);
-    }, timeout);
-  };
-}

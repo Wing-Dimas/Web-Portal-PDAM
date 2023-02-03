@@ -11,14 +11,13 @@ class Application extends Model
     use HasFactory;
 
     protected $fillable = [
+        "id",
         "name",
         "description",
         "icon",
         "link",
         "group_id"
     ];
-
-    protected $guarded = ["id"];
 
     public function getIncrementing()
     {

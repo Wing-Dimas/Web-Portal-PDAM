@@ -10,9 +10,7 @@ class Group extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["name"];
-
-    protected $guarded = ["id"];
+    protected $fillable = ["id","name"];
 
     public function getIncrementing()
     {
