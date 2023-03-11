@@ -132,8 +132,8 @@
                         $("#modal-form textarea[name='description']").val(res.data.description)
                         $("#modal-form input[name='link']").val(res.data.link)
                         $("#modal-form select[name='group_id']").val(res.data.group_id)
-                        $(".modal-btn").text("Update Grup")
-                        $(".modal-title").text("Edit Group")
+                        $(".modal-btn").text("Update Application")
+                        $(".modal-title").text("Edit Application")
                         $(".overlay").removeClass("invisible");
                         $(".overlay").addClass("visible");
                     });

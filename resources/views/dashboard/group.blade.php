@@ -112,7 +112,7 @@
                         $(".overlay").removeClass("invisible");
                         $(".overlay").addClass("visible");
                     });
-
+                    
                 })
                 
                 // handle btn close or overlay is click
@@ -121,6 +121,7 @@
                     $("#modal-form").attr("action", `{{ route("group.store") }}`);
                     $("#modal-form input[name='name']").val("")
                     $(".modal-btn").text("New Group");
+                    $(".modal-title").text("New Group")
                     $(".overlay").removeClass("visible");
                     $(".overlay").addClass("invisible");
                 })
