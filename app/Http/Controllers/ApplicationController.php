@@ -15,16 +15,17 @@ class ApplicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $applications = Application::latest()->get();
+        
+        if($request->has("search")){
+            $applications = Application::where("name", "LIKE", "%" . $request->search . "%")->paginate(8);
+        }else{
+            $applications = Application::latest()->paginate(8);
+        }
+
         $groups = Group::latest()->get();
         return view("dashboard.application", compact("applications", "groups"));
-    }
-
-    public function search()
-    {
-
     }
 
     /**

@@ -14,9 +14,13 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $groups = Group::latest()->get();
+        if($request->has("search")){
+            $groups = Group::where("name", "LIKE", "%" . $request->search . "%")->paginate(8);
+        }else{
+            $groups = Group::latest()->paginate(8);
+        }
         return view("dashboard.group", compact("groups"));
     }
 

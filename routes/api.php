@@ -26,4 +26,4 @@ Route::get("/single-group/{group}", [GroupController::class, "single"])->name("s
 
 Route::get("/single-application/{application}", [ApplicationController::class, "single"])->name("application.group");
 
-Route::post("/get-application", [ApplicationController::class, "getData"]);
+Route::get("/get-application", [ApplicationController::class, "getData"]);

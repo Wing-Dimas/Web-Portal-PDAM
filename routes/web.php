@@ -48,7 +48,5 @@ Route::middleware("auth")->group(function(){
         "profile" => ProfileController::class
     ]);
 
-    Route::get("/application/search", [ApplicationController::class, "search"])->name("application.search");
-
     Route::get("/logout", [LogoutController::class, "index"])->name("logout");
 });
